@@ -128,7 +128,7 @@ const GALLERY_IMAGES = [
     label: 'Reasonable Prices',
   },
   {
-    url: 'srs_contact_banner_new_1779852919629.png',
+    url: 'sainath_contact_cropped.png',
     alt: 'Boutique interior in Raghuveera Towers',
     label: 'Raghuveera Towers',
   },
