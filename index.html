@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sri Sainath Her Choice — Anantapur</title>
+  <meta name="description" content="Sri Sainath Her Choice in Anantapur offers premium women's clothing, kids collection, and daily wear dresses. Located in Kamalanagar.">
+  <meta name="keywords" content="Womens Clothing Anantapur, Best Kids Wear Anantapur, Sri Sainath Her Choice Kamalanagar, Ethnic Wear">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════ -->
+  <nav class="nav" id="navbar">
+    <div class="nav-logo">
+      Sri Sainath Her Choice
+      <span>Kamalanagar, Anantapur · Premium Clothing</span>
+    </div>
+    <div class="nav-links" id="nav-links">
+      <a href="#collection">Collection</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="nav-contact-link">Contact Us</a>
+    </div>
+    <div class="nav-actions">
+      <button class="nav-btn" id="cart-toggle-btn" title="Cart" aria-label="Open cart">
+        <i class="fa-solid fa-bag-shopping"></i>
+        <span class="cart-count" id="cart-count" style="display:none">0</span>
+      </button>
+      <button class="nav-btn hamburger" id="hamburger" aria-label="Toggle menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-text">
+      <div class="hero-eyebrow">✦ Premium Women & Kids Wear ✦</div>
+      <h1>The Elegance of<br><em>Style</em><br>Lives Here</h1>
+      <p>Premium women's clothing, elegant ladies wear, and beautiful kids collections from the heart of Anantapur.</p>
+      <div class="hero-badges">
+        <span class="badge">✨ Premium Quality</span>
+        <span class="badge">👗 Women & Kids Wear</span>
+        <span class="badge">🛍️ In-store & Delivery</span>
+        <span class="badge">⭐ 4.2 Rated</span>
+      </div>
+      <div class="hero-cta">
+        <a href="#collection" class="btn-primary">Shop Collection</a>
+        <a href="#contact" class="btn-secondary">Request Delivery</a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <!-- Premium boutique display -->
+      <img
+        src="srs_hero_image_1779810349059.png"
+        alt="Beautiful Indian women's ethnic wear boutique"
+        onerror="this.style.background='#d4b896';this.style.display='block'"
+      />
+      <div class="hero-tag">📍 Kamalanagar, Anantapur</div>
+    </div>
+  </section>
+
+  <div class="divider-strip">✦ &nbsp; Premium Quality · Women & Kids Wear · In-store Shopping · Fast Delivery &nbsp; ✦</div>
+
+  <!-- ═══════════════════════════════════════
+       FILTERS + COLLECTION
+  ═══════════════════════════════════════ -->
+  <section class="collection-section" id="collection">
+    <div class="section-head">
+      <h2>Our Collection</h2>
+      <p>Beautiful collections for women and kids, perfect for every occasion</p>
+    </div>
+
+    <div class="filters" id="filters">
+      <span class="filter-label">Filter by:</span>
+      <button class="filter-btn active" data-cat="all">All</button>
+      <button class="filter-btn" data-cat="ladies_wear">Ladies Wear</button>
+      <button class="filter-btn" data-cat="kids_wear">Kids Collection</button>
+      <button class="filter-btn" data-cat="ethnic_wear">Ethnic Wear</button>
+    </div>
+
+    <div class="products-meta">
+      <small id="prod-count">Showing all pieces</small>
+    </div>
+
+    <div class="products-grid" id="products-grid">
+      <!-- Populated by JS -->
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       CUSTOMISE BANNER
+  ═══════════════════════════════════════ -->
+  <section class="custom-banner">
+    <div class="custom-banner-inner">
+      <div>
+        <h3>Affordable & Premium Quality</h3>
+        <p>We offer the best place for shopping in Anantapur for kids & ladies collection. Visit us for a very good shopping experience with reasonable prices.</p>
+      </div>
+      <a href="#contact" class="btn-primary btn-light">Shop Now →</a>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       REVIEWS
+  ═══════════════════════════════════════ -->
+  <section class="reviews-section" id="reviews">
+    <div class="section-head">
+      <h2>What Our Customers Say</h2>
+      <p>Real experiences from buyers across Anantapur</p>
+    </div>
+    <div class="reviews-grid" id="reviews-grid">
+      <!-- Populated by JS -->
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       GALLERY
+  ═══════════════════════════════════════ -->
+  <section class="gallery-section" id="gallery">
+    <div class="section-head">
+      <h2>Our Shop & Craft</h2>
+      <p>Visit us in Raghuveera Towers or order online. We provide the finest clothing.</p>
+    </div>
+    <div class="gallery-grid" id="gallery-grid">
+      <!-- Populated by JS -->
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       FAQ SECTION
+  ═══════════════════════════════════════ -->
+  <section class="faq-section" id="faq">
+    <div class="section-head">
+      <h2>Frequently Asked Questions</h2>
+      <p>Everything you need to know before visiting Sri Sainath Her Choice</p>
+    </div>
+    
+    <div class="faq-item">
+      <div class="faq-question">
+        What types of clothing do you sell?
+        <i class="fa-solid fa-plus"></i>
+      </div>
+      <div class="faq-answer">
+        We offer a wide range of premium women's clothing, ladies daily wear, ethnic wear, and a beautiful kids collection.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        Where exactly is Sri Sainath Her Choice located?
+        <i class="fa-solid fa-plus"></i>
+      </div>
+      <div class="faq-answer">
+        We are located on the Ground floor of Raghuveera Towers, Shop no: 51 & 58, Subash Rd, Kamalanagar, Anantapur, Andhra Pradesh.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        What are the store timings?
+        <i class="fa-solid fa-plus"></i>
+      </div>
+      <div class="faq-answer">
+        We are open every day from 10 AM to 9 PM.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        Do you offer home delivery?
+        <i class="fa-solid fa-plus"></i>
+      </div>
+      <div class="faq-answer">
+        Yes! We offer in-store shopping, in-store pick-up, and convenient home delivery options for your clothing.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        Is your store affordable?
+        <i class="fa-solid fa-plus"></i>
+      </div>
+      <div class="faq-answer">
+        Yes! Our customers love our very reasonable prices and premium quality collections. We strive to provide the best value in Anantapur.
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       CONTACT / CUSTOMISE FORM
+  ═══════════════════════════════════════ -->
+  <section class="contact-section" id="contact">
+    <div style="max-width: var(--max-w); margin: 0 auto 48px;">
+      <img src="srs_contact_banner_new_1779852919629.png" alt="Visit Our Boutique" class="contact-banner-img" />
+    </div>
+    <div class="contact-wrapper">
+
+      <!-- Left: Info -->
+      <div class="contact-info">
+        <div class="contact-eyebrow">✦ Get in Touch</div>
+        <h2>Contact Us &amp;<br>Request Delivery</h2>
+        <p>Looking for a specific ethnic dress, kids wear, or daily wear? Fill out the form and our team will personally get back to you.</p>
+
+        <div class="contact-details">
+          <div class="contact-detail-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Shop No: 51 & 58, Ground floor, Raghuveera Towers, Subash Rd, Kamalanagar, Anantapur 515001</span>
+          </div>
+          <div class="contact-detail-item">
+            <i class="fa-solid fa-phone"></i>
+            <span>089784 99561</span>
+          </div>
+          <div class="contact-detail-item">
+            <i class="fa-solid fa-clock"></i>
+            <span>Open Daily: 10 AM – 9 PM</span>
+          </div>
+          <div class="contact-detail-item">
+            <i class="fa-solid fa-truck"></i>
+            <span>Home delivery available in Anantapur</span>
+          </div>
+        </div>
+
+        <div class="contact-note">
+          <strong>Services we offer:</strong>
+          <ul>
+            <li>Ladies Daily Wear & Ethnic Wear</li>
+            <li>Kids Clothing Collection</li>
+            <li>Affordable Pricing</li>
+            <li>Virtual Shopping via WhatsApp</li>
+            <li>Local Delivery in Anantapur</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="contact-form-wrap">
+        <form class="contact-form" id="contact-form" novalidate>
+
+          <div class="form-row two-col">
+            <div class="form-group">
+              <label for="cf-name">Full Name <span class="req">*</span></label>
+              <input type="text" id="cf-name" name="name" placeholder="e.g. Priya Sharma" required />
+              <span class="field-error" id="err-name"></span>
+            </div>
+            <div class="form-group">
+              <label for="cf-phone">Phone Number <span class="req">*</span></label>
+              <input type="tel" id="cf-phone" name="phone" placeholder="e.g. 98765 43210" required />
+              <span class="field-error" id="err-phone"></span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="cf-email">Email Address <span class="req">*</span></label>
+            <input type="email" id="cf-email" name="email" placeholder="e.g. priya@gmail.com" required />
+            <span class="field-error" id="err-email"></span>
+          </div>
+
+          <div class="form-row two-col">
+            <div class="form-group">
+              <label for="cf-type">Enquiry Type <span class="req">*</span></label>
+              <select id="cf-type" name="enquiry_type" required>
+                <option value="">— Select —</option>
+                <option value="custom_order">Delivery Request</option>
+                <option value="existing_product">Question about a Product</option>
+                <option value="wholesale">Kids Wear Enquiry</option>
+                <option value="shipping">Store Location / Timings</option>
+                <option value="other">Other</option>
+              </select>
+              <span class="field-error" id="err-type"></span>
+            </div>
+            <div class="form-group">
+              <label for="cf-product">Product Category</label>
+              <select id="cf-product" name="product_category">
+                <option value="">— Select (optional) —</option>
+                <option value="ladies_wear">Ladies Daily Wear</option>
+                <option value="kids_wear">Kids Wear</option>
+                <option value="ethnic_wear">Exclusive Ethnic Wear</option>
+                <option value="other">Other / Not sure yet</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Customisation fields -->
+          <div class="custom-fields" id="custom-fields" style="display:none">
+            <div class="custom-fields-title">
+              <i class="fa-solid fa-paintbrush"></i> Preferences
+            </div>
+            <div class="form-row two-col">
+              <div class="form-group">
+                <label for="cf-motif">Specific Requirements</label>
+                <input type="text" id="cf-motif" name="motif" placeholder="e.g. Size 10 kids, Party wear" />
+              </div>
+              <div class="form-group">
+                <label for="cf-fabric">Preferred Fabric</label>
+                <select id="cf-fabric" name="fabric">
+                  <option value="">— Select —</option>
+                  <option value="cotton">Cotton / Daily Wear</option>
+                  <option value="silk">Silk / Ethnic</option>
+                  <option value="not_sure">Not sure — suggest one</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row two-col">
+              <div class="form-group">
+                <label for="cf-colors">Colour Preferences</label>
+                <input type="text" id="cf-colors" name="colors" placeholder="e.g. Red & Gold, Pastel Green" />
+              </div>
+              <div class="form-group">
+                <label for="cf-budget">Approximate Budget</label>
+                <select id="cf-budget" name="budget">
+                  <option value="">— Select —</option>
+                  <option value="under_1000">Under ₹1,000</option>
+                  <option value="1000_3000">₹1,000 – ₹3,000</option>
+                  <option value="3000_5000">₹3,000 – ₹5,000</option>
+                  <option value="above_5000">Above ₹5,000</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="cf-message">Your Message <span class="req">*</span></label>
+            <textarea id="cf-message" name="message" rows="4" placeholder="Tell us what you're looking for..." required></textarea>
+            <span class="field-error" id="err-message"></span>
+          </div>
+
+          <div class="form-group checkbox-group">
+            <label class="checkbox-label">
+              <input type="checkbox" id="cf-whatsapp" name="whatsapp" />
+              <span>I'm happy to be contacted on WhatsApp for updates</span>
+            </label>
+          </div>
+
+          <button type="submit" class="form-submit" id="form-submit">
+            <span id="submit-text">Send Message</span>
+            <i class="fa-solid fa-paper-plane" id="submit-icon"></i>
+          </button>
+
+          <!-- Success message -->
+          <div class="form-success" id="form-success" style="display:none">
+            <i class="fa-solid fa-circle-check"></i>
+            <strong>Thank you!</strong> Your message has been sent. Our team will get back to you shortly.
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">Sri Sainath Her Choice</div>
+        <p>Premium women's clothing and kids wear from Anantapur, Andhra Pradesh.</p>
+        <div class="footer-badges">
+          <span>✅ Top Rated (4.2)</span>
+          <span>🚚 Home Delivery</span>
+        </div>
+      </div>
+      <div class="footer-links">
+        <strong>Quick Links</strong>
+        <a href="#collection">Shop Collection</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-contact">
+        <strong>Find Us</strong>
+        <p>Shop No: 51 & 58, Raghuveera Towers<br>Subash Rd, Kamalanagar<br>Anantapur, Andhra Pradesh 515001</p>
+        <p>📞 089784 99561</p>
+        <p>🕐 Open Daily: 10 AM – 9 PM</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Sri Sainath Her Choice · All rights reserved
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════
+       CART PANEL
+  ═══════════════════════════════════════ -->
+  <div class="cart-overlay" id="cart-overlay"></div>
+  <aside class="cart-panel" id="cart-panel" aria-label="Shopping cart">
+    <div class="cart-head">
+      <h3>Your Cart</h3>
+      <button class="close-btn" id="cart-close-btn" aria-label="Close cart">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <div id="cart-items"></div>
+  </aside>
+
+  <!-- Toast notification -->
+  <div id="toast" role="status" aria-live="polite"></div>
+
+  <!-- ═══════════════════════════════════════
+       CHECKOUT MODAL
+  ═══════════════════════════════════════ -->
+  <div class="checkout-overlay" id="checkout-overlay"></div>
+  <div class="checkout-modal" id="checkout-modal" aria-label="Checkout details">
+    <div class="checkout-head">
+      <h3>Checkout Details</h3>
+      <button class="close-btn" id="checkout-close-btn" aria-label="Close checkout">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <div class="checkout-body">
+      <form id="checkout-form" novalidate>
+        <div class="form-group" style="margin-bottom: 16px;">
+          <label for="co-name">Full Name <span class="req">*</span></label>
+          <input type="text" id="co-name" required placeholder="e.g. Priya Sharma">
+        </div>
+        <div class="form-group" style="margin-bottom: 16px;">
+          <label for="co-phone">Phone Number <span class="req">*</span></label>
+          <input type="tel" id="co-phone" required placeholder="e.g. 98765 43210">
+        </div>
+        <div class="form-group" style="margin-bottom: 16px;">
+          <label for="co-address">Delivery Address <span class="req">*</span></label>
+          <textarea id="co-address" required rows="3" placeholder="Enter your full manual address"></textarea>
+        </div>
+        <div class="form-group" style="margin-bottom: 24px;">
+          <label>GPS Location (Optional)</label>
+          <button type="button" class="btn-secondary" id="co-location-btn" style="width: 100%; font-size: 13px; padding: 10px; display: flex; align-items: center; justify-content: center; gap: 8px;">
+            <i class="fa-solid fa-location-crosshairs"></i> Capture My Location
+          </button>
+          <input type="hidden" id="co-coords" value="">
+          <div id="co-location-status" style="font-size: 12px; color: var(--muted); margin-top: 6px; text-align: center;"></div>
+        </div>
+        <button type="submit" class="form-submit">
+          Place Order via WhatsApp <i class="fa-brands fa-whatsapp" style="font-size: 18px; margin-left: 4px;"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
