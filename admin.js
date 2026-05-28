@@ -113,6 +113,8 @@ productForm.addEventListener('submit', async (e) => {
   const desc = document.getElementById('p-desc').value;
   const tagsStr = document.getElementById('p-tags').value;
   const tags = tagsStr.split(',').map(t => t.trim()).filter(t => t);
+  const metaTitle = document.getElementById('p-meta-title').value;
+  const metaDesc = document.getElementById('p-meta-desc').value;
 
   try {
     const storageRef = storage.ref('products/' + Date.now() + '_' + file.name);
@@ -120,7 +122,7 @@ productForm.addEventListener('submit', async (e) => {
     const imgUrl = await snapshot.ref.getDownloadURL();
 
     await db.collection('products').add({
-      name, price, orig, cat, desc, tags, img: imgUrl, inStock: true, createdAt: firebase.firestore.FieldValue.serverTimestamp()
+      name, price, orig, cat, desc, tags, metaTitle, metaDesc, img: imgUrl, inStock: true, createdAt: firebase.firestore.FieldValue.serverTimestamp()
     });
 
     productForm.reset();

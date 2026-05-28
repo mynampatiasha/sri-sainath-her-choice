@@ -388,6 +388,35 @@ function renderReviews() {
    GALLERY
 ───────────────────────────────────────────── */
 
+function initHeroSlider() {
+  const heroContainer = document.getElementById('hero-banner-container');
+  if (!heroContainer || GALLERY_IMAGES.length === 0) return;
+
+  heroContainer.innerHTML = '<div class="hero-tag">?? Kamalanagar, Anantapur</div>';
+  
+  let currentIndex = 0;
+  
+  const imgElement = document.createElement('img');
+  imgElement.style.width = '100%';
+  imgElement.style.height = '100%';
+  imgElement.style.objectFit = 'cover';
+  imgElement.style.transition = 'opacity 0.8s ease-in-out';
+  
+  imgElement.src = GALLERY_IMAGES[currentIndex].url;
+  heroContainer.prepend(imgElement);
+
+  if (GALLERY_IMAGES.length > 1) {
+    setInterval(() => {
+      imgElement.style.opacity = 0;
+      setTimeout(() => {
+        currentIndex = (currentIndex + 1) % GALLERY_IMAGES.length;
+        imgElement.src = GALLERY_IMAGES[currentIndex].url;
+        imgElement.style.opacity = 1;
+      }, 800);
+    }, 4000);
+  }
+}
+
 function renderGallery() {
   document.getElementById('gallery-grid').innerHTML = GALLERY_IMAGES.map(g => `
     <div class="g-img">
@@ -564,3 +593,4 @@ document.addEventListener('DOMContentLoaded', async () => {
   initFAQ();
   initNav();
 });
+
