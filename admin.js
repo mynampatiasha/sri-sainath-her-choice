@@ -100,12 +100,46 @@ function loadProducts() {
   });
 }
 
+let productFiles = [];
+const pImgInput = document.getElementById('p-img');
+const previewContainer = document.getElementById('image-preview-container');
+
+pImgInput.addEventListener('change', (e) => {
+  const files = Array.from(e.target.files);
+  files.forEach(file => {
+    productFiles.push(file);
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const div = document.createElement('div');
+      div.style.position = 'relative';
+      div.innerHTML = `
+        <img src="${e.target.result}" style="width:80px;height:80px;object-fit:cover;border-radius:4px;">
+        <button type="button" style="position:absolute;top:-5px;right:-5px;background:red;color:white;border-radius:50%;border:none;width:20px;height:20px;font-size:12px;cursor:pointer;padding:0;line-height:20px;text-align:center;" onclick="removeProductImage(this, '${file.name}')">X</button>
+      `;
+      previewContainer.appendChild(div);
+    };
+    reader.readAsDataURL(file);
+  });
+  // Clear input so same file can be selected again if removed
+  pImgInput.value = '';
+});
+
+window.removeProductImage = (btn, fileName) => {
+  productFiles = productFiles.filter(f => f.name !== fileName);
+  btn.parentElement.remove();
+};
+
 productForm.addEventListener('submit', async (e) => {
   e.preventDefault();
+  
+  if (productFiles.length === 0) {
+    alert("Please select at least one image.");
+    return;
+  }
+
   btnAddProduct.disabled = true;
   btnAddProduct.textContent = "Uploading...";
 
-  const file = document.getElementById('p-img').files[0];
   const name = document.getElementById('p-name').value;
   const price = Number(document.getElementById('p-price').value);
   const orig = Number(document.getElementById('p-orig').value);
@@ -117,16 +151,26 @@ productForm.addEventListener('submit', async (e) => {
   const metaDesc = document.getElementById('p-meta-desc').value;
 
   try {
-    const storageRef = storage.ref('products/' + Date.now() + '_' + file.name);
-    const snapshot = await storageRef.put(file);
-    const imgUrl = await snapshot.ref.getDownloadURL();
+    let uploadedUrls = [];
+    for (let file of productFiles) {
+      const storageRef = storage.ref('products/' + Date.now() + '_' + file.name);
+      const snapshot = await storageRef.put(file);
+      const imgUrl = await snapshot.ref.getDownloadURL();
+      uploadedUrls.push(imgUrl);
+    }
 
     await db.collection('products').add({
-      name, price, orig, cat, desc, tags, metaTitle, metaDesc, img: imgUrl, inStock: true, createdAt: firebase.firestore.FieldValue.serverTimestamp()
+      name, price, orig, cat, desc, tags, metaTitle, metaDesc, 
+      img: uploadedUrls[0], 
+      imgUrls: uploadedUrls, 
+      inStock: true, 
+      createdAt: firebase.firestore.FieldValue.serverTimestamp()
     });
 
     productForm.reset();
-    showStatus('Product Added!');
+    productFiles = [];
+    previewContainer.innerHTML = '';
+    showStatus('Product Added Successfully!');
   } catch (error) {
     console.error(error);
     alert('Error uploading product!');

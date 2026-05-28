@@ -43,9 +43,13 @@
         <h4 style="grid-column: span 2; margin-bottom: 0;">SEO Settings</h4>
         <input type="text" id="p-meta-title" placeholder="Meta Title (e.g. Buy Premium Red Bridal Saree Online)" style="grid-column: span 2;">
         <input type="text" id="p-meta-desc" placeholder="Meta Description (e.g. Shop the best red bridal sarees in Anantapur...)" style="grid-column: span 2;">
-        
         <input type="text" id="p-tags" placeholder="Product Tags (comma separated, e.g. Silk, Party, Fancy)" style="grid-column: span 2;">
-        <input type="file" id="p-img" accept="image/*" required style="grid-column: span 2;">
+        
+        <div style="grid-column: span 2;">
+          <input type="file" id="p-img" accept="image/*" multiple required>
+          <div id="image-preview-container" style="display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap;"></div>
+        </div>
+        
         <button type="submit" id="btn-add-product">Add Product</button>
       </form>
       <h3>Current Products</h3>
