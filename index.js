@@ -10,63 +10,22 @@
    DATA
 ───────────────────────────────────────────── */
 
-const PRODUCTS = [
-  {
-    id: 1,
-    name: "Floral Vine Kurti Set",
-    cat: 'ladies_wear',
-    price: 1200,
-    orig: 1600,
-    img: 'Floral_Vine_Kurta_Set_2.png',
-    tags: ['Kurti', 'Daily Wear', 'Floral'],
-    inStock: true,
-    desc: 'Elegant ladies kurti set with beautiful floral vine designs for daily wear.',
-  },
-  {
-    id: 2,
-    name: 'Premium Girls Party Dress',
-    cat: 'kids_wear',
-    price: 850,
-    orig: 1100,
-    img: 'girl_dress.webp',
-    tags: ['Kids', 'Party', 'Cute'],
-    inStock: true,
-    desc: 'Cute and comfortable party wear dress for young girls. Excellent fabric quality.',
-  },
-  {
-    id: 3,
-    name: 'Red Bridal Ethnic Wear',
-    cat: 'ethnic_wear',
-    price: 4500,
-    orig: 5500,
-    img: 'srs_kanjeevaram_red_1779810369174.png',
-    tags: ['Bridal', 'Red', 'Premium'],
-    inStock: true,
-    desc: 'Stunning red bridal wear with intricate gold detailing for special occasions.',
-  },
-  {
-    id: 4,
-    name: 'Traditional Art Saree',
-    cat: 'ladies_wear',
-    price: 1550,
-    orig: 1750,
-    img: 'Dashavatara_Panel_Saree_2.png',
-    tags: ['Traditional', 'Art', 'Exclusive'],
-    inStock: true,
-    desc: 'Exclusive hand-painted traditional artwork saree for a unique, cultural look.',
-  },
-  {
-    id: 5,
-    name: 'Assorted Silk Bundle',
-    cat: 'ethnic_wear',
-    price: 8500,
-    orig: 9500,
-    img: 'srs_saree_circle_1779812099822.png',
-    tags: ['Bundle', 'Gift', 'Silk'],
-    inStock: true,
-    desc: 'A beautiful multi-color bundle of premium silk sarees. Great for gifting!',
-  }
-];
+const firebaseConfig = {
+  apiKey: "AIzaSyAv8WZPd7k6oGAsGX10NPAOp6iuqU3QE1w",
+  authDomain: "experime-3251a.firebaseapp.com",
+  projectId: "experime-3251a",
+  storageBucket: "experime-3251a.firebasestorage.app",
+  messagingSenderId: "256324869428",
+  appId: "1:256324869428:web:02a6392b90e77b2f805961"
+};
+
+// Initialize Firebase
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
+const db = firebase.firestore();
+
+let PRODUCTS = [];
 
 const REVIEWS = [
   {
@@ -106,33 +65,7 @@ const REVIEWS = [
   }
 ];
 
-const GALLERY_IMAGES = [
-  {
-    url: 'Floral_Vine_Kurta_Set_2.png',
-    alt: 'Premium ladies wear',
-    label: 'Premium Ladies Wear',
-  },
-  {
-    url: 'girl_dress.webp',
-    alt: 'Beautiful kids party dress',
-    label: 'Beautiful Kids Collection',
-  },
-  {
-    url: 'srs_kanjeevaram_red_1779810369174.png',
-    alt: 'Colorful ethnic styles',
-    label: 'Ethnic Styles',
-  },
-  {
-    url: 'Dashavatara_Panel_Saree_2.png',
-    alt: 'Reasonable and stylish prices',
-    label: 'Reasonable Prices',
-  },
-  {
-    url: 'sainath_contact_cropped.png',
-    alt: 'Boutique interior in Raghuveera Towers',
-    label: 'Raghuveera Towers',
-  },
-];
+let GALLERY_IMAGES = [];
 
 const FREE_SHIPPING_THRESHOLD = 2000;
 const SHIPPING_COST           = 50;
@@ -609,7 +542,17 @@ function initNav() {
    INIT
 ───────────────────────────────────────────── */
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+  try {
+    const pSnap = await db.collection('products').get();
+    PRODUCTS = pSnap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+
+    const gSnap = await db.collection('banners').get();
+    GALLERY_IMAGES = gSnap.docs.map(doc => doc.data());
+  } catch (err) {
+    console.error("Firebase fetch error:", err);
+  }
+
   renderProducts('all');
   renderReviews();
   renderGallery();

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SRS Silks - Admin Portal</title>
+  <link rel="stylesheet" href="admin.css">
+  <!-- Firebase Compat libraries -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-storage-compat.js"></script>
+</head>
+<body>
+
+  <div class="admin-sidebar">
+    <h2>SRS Admin</h2>
+    <nav>
+      <a href="#" class="active" data-tab="products">Products</a>
+      <a href="#" data-tab="categories">Categories</a>
+      <a href="#" data-tab="banners">Banners</a>
+    </nav>
+  </div>
+
+  <div class="admin-main">
+    <header>
+      <h1>Admin Dashboard</h1>
+    </header>
+
+    <div id="status-msg">Saved Successfully!</div>
+
+    <!-- PRODUCTS TAB -->
+    <div class="tab-content active" id="tab-products">
+      <h3>Add New Product</h3>
+      <form id="product-form">
+        <input type="text" id="p-name" placeholder="Product Name" required>
+        <select id="p-cat" required>
+          <option value="">Select Category...</option>
+        </select>
+        <input type="number" id="p-price" placeholder="Selling Price (₹)" required>
+        <input type="number" id="p-orig" placeholder="Original Price (₹)" required>
+        <input type="text" id="p-desc" placeholder="Product Description" required style="grid-column: span 2;">
+        <input type="text" id="p-tags" placeholder="Tags (comma separated, e.g. Silk, Party, Fancy)" style="grid-column: span 2;">
+        <input type="file" id="p-img" accept="image/*" required style="grid-column: span 2;">
+        <button type="submit" id="btn-add-product">Add Product</button>
+      </form>
+      <h3>Current Products</h3>
+      <div id="products-list" class="list-grid"></div>
+    </div>
+
+    <!-- CATEGORIES TAB -->
+    <div class="tab-content" id="tab-categories">
+      <h3>Add New Category</h3>
+      <form id="cat-form">
+        <input type="text" id="c-id" placeholder="Category ID (e.g., fancy_sarees)" required>
+        <input type="text" id="c-name" placeholder="Display Name (e.g., Fancy Sarees)" required>
+        <button type="submit">Add Category</button>
+      </form>
+      <h3>Current Categories</h3>
+      <div id="cats-list" class="list-grid"></div>
+    </div>
+
+    <!-- BANNERS TAB -->
+    <div class="tab-content" id="tab-banners">
+      <h3>Add New Banner</h3>
+      <form id="banner-form">
+        <input type="text" id="b-label" placeholder="Banner Title (e.g., Summer Collection)" required>
+        <input type="text" id="b-alt" placeholder="Alt Text (e.g., beautiful silk sarees)" required>
+        <input type="file" id="b-img" accept="image/*" required style="grid-column: span 2;">
+        <button type="submit" id="btn-add-banner">Add Banner</button>
+      </form>
+      <h3>Current Banners</h3>
+      <div id="banners-list" class="list-grid"></div>
+    </div>
+
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
